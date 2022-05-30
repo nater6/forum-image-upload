@@ -1,0 +1,924 @@
+@import url('https://fonts.googleapis.com/css2?family=Trade+Winds&family=Work+Sans:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+@font-face {
+  font-family: 'Orbitron', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;700&display=swap');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+* {
+  font-family: Work Sans;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: black;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+
+}
+
+p {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.Body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #d6d4d4;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.Sidebar {
+  position: absolute;
+  width: 18vw;
+  height: 95vh;
+  left: 0px;
+  top: 6vh;
+  background: #2b2b2b;
+}
+
+.Menu {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  width: 14vw;
+  height: 167px;
+  left: 0px;
+  top: 111px;
+  background: #626262;
+  padding: 6px;
+}
+
+.Menu-Item-Search {
+  position: absolute;
+  width: 14vw;
+  height: 41px;
+  left: 0px;
+  top: 40px;
+  padding: 6px;
+
+  background: #0f0dad;
+}
+
+/*-------------------------------COMMENT SECTION-------------------------------------------*/
+::-webkit-scrollbar {
+  width: 2px;
+  height: 40px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #b1b1b100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0fc76c;
+}
+
+/* DROPDOWN FILTER*/
+/* Dropdown Button */
+.dropbtn {
+  background-color: #0fc76c;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 10vw;
+  margin-left: 3.8vw;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}
+
+.dropbtn:hover {
+  background-color: #0fc76c;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  font-family: 'Work Sans',
+    sans-serif;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 45px;
+  margin-top: 1vh;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0fc76c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(187, 187, 187);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #0fc76c;
+}
+
+.postSection {
+  background: #fffafa;
+  width: 80vw;
+  height: 95vh;
+  top: 6vh;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  overflow: scroll;
+  overflow-x: hidden;
+  display: flex;
+  margin-top: -11px;
+}
+
+.postSection::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  border-radius: 4px;
+}
+
+/* Track */
+.postSection::-webkit-scrollbar-track {
+  background: #ff000000;
+}
+
+/* Handle */
+.postSection::-webkit-scrollbar-thumb {
+  background: rgb(153, 153, 153);
+  border-radius: 1vh;
+}
+
+/* Handle on hover */
+.postSection::-webkit-scrollbar-thumb:hover {
+  background: #0fc76c;
+}
+
+.indPosts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 3px;
+  position: relative;
+  z-index: 0;
+  height: 100%;
+
+  width: 65vw;
+  min-height: 50vh;
+
+  background: #ffffff;
+  /* Border */
+  /* border: 1px solid #47469f;
+  box-sizing: border-box;
+  /* Shadow */
+  /* box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 15px; */
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5vh;
+  transform:
+    perspective(75em);
+  box-shadow:
+    rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color:
+    rgb(213, 220, 226) rgb(213, 220, 226) rgb(184, 194, 204);
+}
+
+.LogNreg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 3px;
+  position: relative;
+  z-index: 0;
+
+
+  width: 65vw;
+  min-height: 50vh;
+
+  background: #efefef;
+  /* Border */
+  /* border: 1px solid #47469f;
+    box-sizing: border-box;
+    /* Shadow */
+  /* box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 15px; */
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20vh;
+  justify-content: center;
+  transform:
+    perspective(75em);
+  box-shadow:
+    rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color:
+    rgb(213, 220, 226) rgb(213, 220, 226) rgb(184, 194, 204);
+
+}
+
+.Comment-header {
+  width: 53vw;
+  height: 6vh;
+  /* background: #d1eb07;*/
+}
+
+.Comment-body {
+  width: 53vw;
+  min-height: 13vh;
+  /* background: #59eb0a; */
+}
+
+.Comment-footer {
+  width: 100%;
+  height: 30px;
+  color: #888;
+  position: absolute;
+  bottom: 4vh;
+
+  /* background: #07aeeb; */
+}
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#postCat {
+  background-color: #0fc76bd9;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10%;
+  margin-right: 6px;
+  margin-left: 6px;
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  font-size: 2.5vh;
+  top: 15%;
+
+}
+
+.Left-Comment-footer {
+  float: right;
+}
+
+.Help-box {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  width: 18vw;
+  height: 2px;
+  top: 7vh;
+  background: #ad9393;
+  padding: 6px;
+  margin-left: 79vw;
+}
+
+.Navbar {
+  position: absolute;
+  height: 4.3vh;
+  left: 0px;
+  right: 0px;
+  top: 0vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #0fc76c;
+  border-color: #0fc76c;
+  /* Border */
+}
+
+.Navbar-Logo {
+  position: absolute;
+  width: 112px;
+  height: 29.6px;
+  left: 50px;
+  top: 27px;
+}
+
+.Navbar-buttons {
+  display: flex;
+  float: right;
+}
+
+.Nav-Register-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 4px;
+
+  height: 38px;
+  left: 1204px;
+  top: 23px;
+
+  background: #0fc76c;
+  border-radius: 5px;
+}
+
+.Nav-Login-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 4px;
+  height: 38px;
+  left: 1333px;
+  top: 23px;
+
+  /* Border */
+  background: #0fc76c;
+  border-radius: 5px;
+}
+
+.Nav-Logout-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 4px;
+  height: 38px;
+  left: 1333px;
+  top: 23px;
+
+  /* Border */
+  background: #425a63;
+  border-radius: 5px;
+}
+
+.Not_Login {
+  display: flex;
+}
+
+.Login {
+  display: none;
+}
+
+.Modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.Rmodal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%;
+  height: 60%;
+  border-radius: 8px;
+}
+
+.lclose:hover,
+.lclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border-radius: 8px;
+  height: 25px;
+  width: 250px;
+}
+
+.Form-btn-login {
+  margin-top: 3vh;
+  height: 35px;
+  width: 210px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  background: #525d42;
+  font-size: large;
+}
+
+.Form-btn-register {
+  margin-top: 3vh;
+  height: 35px;
+  width: 210px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 8px;
+  background: #ad8f6c;
+  font-size: large;
+}
+
+.Form-login-inputBox {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  text-align: initial;
+}
+
+.Form-login-Signup-btn {
+  background: none;
+  border: none;
+  font-size: large;
+  cursor: pointer;
+}
+
+.Form-login-Signup-div {
+  display: flex;
+  justify-content: center;
+}
+
+/*<--------------------------- like buttons---------------------------------->*/
+
+
+#likeSubmit {
+  width: 40px;
+  height: 20px;
+  background-color: rgba(0, 128, 0, 0);
+  color: rgba(0, 128, 0, 0);
+  border: none;
+  margin-left: -40px;
+}
+
+#dislikeSubmit {
+  color: rgba(255, 0, 0, 0);
+  background-color: rgba(255, 0, 0, 0);
+  border: none;
+  height: 20px;
+  width: 20wv;
+  margin-left: -1.5vw;
+  width: 1vw;
+}
+
+.btnPlace {
+  margin-bottom: -5vh;
+}
+
+.LikeBtnDiv {
+  float: right;
+  margin-right: 1.25vh;
+  margin-top: -5vh;
+}
+
+/* STYLING THE COMMENT SECTION */
+
+#postCommentsBtn {
+  margin-left: -250px;
+  width: 100px;
+  position: relative;
+  margin-top: 12px;
+  float: right;
+}
+
+.commentContent {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 3px;
+  display: none;
+
+
+  width: 65vw;
+  min-height: 50vh;
+
+  background-color: #ffffff;
+  /* Border */
+  border: 1px solid #47469f00;
+  box-sizing: border-box;
+  /* Shadow */
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+
+  margin-right: auto;
+  margin-left: auto;
+  overflow-y: scroll;
+  z-index: 1;
+
+
+}
+
+.commentContent::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  border-radius: 8px;
+}
+
+/* Track */
+.commentContent::-webkit-scrollbar-track {
+  background: #ff000000;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+/* Handle */
+.commentContent::-webkit-scrollbar-thumb {
+  background: rgb(153, 153, 153);
+  border-radius: 1vh;
+}
+
+/* Handle on hover */
+.commentContent::-webkit-scrollbar-thumb:hover {
+  background: #0fc76c;
+  border-radius: 1vh;
+}
+
+#commentSubmit {
+  color: rgba(255, 255, 255, 0);
+  background-color: #0fc76c;
+  border: none;
+  width: 2vw;
+}
+
+/* STYLING the main posts */
+
+#postText {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  border: 0.5;
+  border-style: solid;
+  border-color: black;
+  height: inherit -2px;
+  padding: 1em;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+
+}
+
+/* ------------------------------------------------------------------------------ */
+.postTextDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.logo {
+  margin-top: -100vh;
+}
+
+/* ------------------------------------------------------------------------------ */
+.postTitle {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: 'Work Sans', sans-serif;
+
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  margin-top: 5vh;
+
+
+}
+
+.postHeader {
+  max-height: 5px;
+}
+
+.comment-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Work Sans', sans-serif;
+  white-space: nowrap;
+  padding-left: 5vh;
+}
+
+.commentSelector {
+  background-color: #0fc76bd9;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10%;
+  margin-right: 6px;
+  margin-left: 6px;
+  border: none;
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  font-size: 2.5vh;
+  top: 15%;
+}
+
+.commentSelector:hover {
+  color: black;
+}
+
+.usernamePost {
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: #0fc76c;
+  margin-top: -2.5vh;
+}
+
+.filters {
+  background: none !important;
+  color: #ffffff;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  cursor: pointer;
+  font-family: 'Work Sans',
+    sans-serif;
+}
+
+.filters:hover {
+  background: none !important;
+  color: #000000;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  cursor: pointer;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}
+
+.navBarbtns {
+  color: white;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+}
+
+.navBarbtns:hover {
+  color: black;
+  font-size: 3vh;
+}
+
+#blackAnchor {
+  color: black;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}
+
+#blackAnchor:hover {
+  color: #0fc76c;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}
+
+
+.post {
+  width: 10vw;
+  height: 10vh;
+}
+
+.center {
+  width: 100%;
+  margin-top: 5vh;
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 0.5vh;
+  margin-left: 2vw;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+.newPostinputs {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 3px;
+  position: relative;
+  z-index: 0;
+  font-family: 'Work Sans',
+    sans-serif;
+
+
+  min-height: 50vh;
+
+  background: #ffffff;
+
+  width: 77vw;
+  margin-right: auto;
+  margin-left: 10vw;
+  margin-top: 10vh;
+  transform:
+    perspective(75em);
+  box-shadow:
+    rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+    rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color:
+    rgb(213, 220, 226) rgb(213, 220, 226) rgb(184, 194, 204);
+}
+
+#check {
+  display: inline-block;
+  width: 100%;
+}
+
+
+#postSubmit {
+  border: none;
+  background-color: #0fc76c;
+  color: white;
+  font-family: 'Work Sans',
+    sans-serif;
+  margin-top: 1vh;
+}
+
+#postSubmit:hover {
+  color: black;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}
+
+.filterLabels {
+  font-size: 3vh;
+  font-family: 'Work Sans',
+    sans-serif;
+}
+
+#commentUsername {
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+  font-size: 2.5vh;
+  color: black;
+}
+
+#likeBTNS {
+  display: inline-block;
+  width: 100%;
+}
+
+.commentLikeBtnDiv {
+  width: 50%;
+  margin-left: 1vw;
+}
+
+#likeCount {
+  font-family: Orbitron;
+  color: black;
+}
+
+.accountSubmit {
+  color: white;
+  background-color: #0fc76c;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+  border: none;
+  width: 5vw;
+}
+
+.accountSubmit:hover {
+  color: rgb(0, 0, 0);
+  background-color: #0fc76c;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+  border: none;
+  width: 5vw;
+}
+
+#loginErr {
+  color: red;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}
+
+.boxStyle {
+  border: none;
+  accent-color: #0fc76c;
+  color: white;
+}
+
+.redErrBox {
+  background-color: red;
+  width: 18%;
+  margin-left: 29vw;
+}
+
+#imageSizeErr {
+  color: white;
+  font-family: 'Work Sans',
+    sans-serif;
+  font-weight: bold;
+}

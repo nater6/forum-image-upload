@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<body>
+    <nav class="Navbar">
+        <div class="Navbar-buttons">
+            <div id="Not_Login" class="Not_Login">
+                {{if .CookieChecker}}
+                <span><button id="homeBtn" class="navBarbtns"><a href="/">Home</a></button></span>
+                <span><button id="logoutBtn" class="navBarbtns"><a href="/logout">Log Out</a></button></span>
+                <span><button id="newpostBtn" class="navBarbtns"><a href="/new-post">+Create Post</a></button></span>
+                {{else}}
+                <span><button id="homeBtn" class="navBarbtns"><a href="/">Home</a></button></span>
+                <span><button id="logBtn" class="navBarbtns"><a href="/log">Login</a></button></span>
+                <span><button id="registerBtn" class="navBarbtns"><a href="/register">Register</a></button></span>
+                {{end}}
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="LogNreg">
+            <form method="POST" action="/registration">
+                <h1>Register</h1>
+                <div>
+                    <label for="email">Enter your email:</label>
+                    <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._-]*@[a-zA-Z]*\.[a-zA-Z]{2,3}"
+                        required placeholder="Email">
+                </div>
+                <br>
+                <div>
+                    <label for="username">Enter your username:</label>
+                    <input type="text" id="username" name="username" required pattern=".*\S+.*" minlength="3"
+                    placeholder="Username">
+                </div>
+                <br>
+                <div>
+                    <label for="password">Enter your password:</label>
+                    <input type="password" id="password" name="password" required pattern=".*\S+.*" minlength="8">
+                </div>
+                <br>
+                <div>
+                    <input type="submit" id="submit" class="accountSubmit" value="Submit">
+                </div>
+
+                {{if .RegistrationAttempted}}
+                {{if .SuccessfulRegistration}}
+                <p>You have successfully registered. Please <a id="blackAnchor" href="/log">Log in</a></p>
+                {{else}}
+                <p>The email or username is already in use. Please try again</p>
+                {{end}}
+                {{end}}
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./static/style.css" />
+
+  <title>Home</title>
+</head>
+
+<!--------------------------------------------------------------- <body> ----------------------------->
+
+<body class="Body">
+  <!------------------------------------------------- Navbar -->
+
+  <nav class="Navbar">
+    <div class="Navbar-buttons">
+      <div id="Not_Login" class="Not_Login">
+        {{if .MembersPost.CookieChecker}}
+        <span><button id="homeBtn" class="navBarbtns">
+            <a href="/">Home</a>
+          </button></span>
+        <span><button id="logoutBtn" class="navBarbtns">
+            <a href="/logout">Log Out</a>
+          </button></span>
+        <span><button id="newpostBtn" class="navBarbtns">
+            <a href="/new-post">+Create Post</a>
+          </button></span>
+        {{else}}
+        <span><button id="homeBtn" class="navBarbtns">
+            <a href="/">Home</a>
+          </button></span>
+        <span><button id="logBtn" class="navBarbtns">
+            <a href="/log">Login</a>
+          </button></span>
+        <span><button id="registerBtn" class="navBarbtns">
+            <a href="/register">Register</a>
+          </button></span>
+        {{end}}
+      </div>
+    </div>
+  </nav>
+  <!-------------------------------------------------- Post Section ------------------------------>
+  <div class="postSection">
+    <div class="dropdown">
+      <button class="dropbtn">Filter</button>
+      <div class="dropdown-content">
+        <form action="/" method="POST">
+          <input type="submit" name="allfilter" class="filters" value="All" />
+          <input type="submit" name="FEfilter" class="filters" value="FrontEnd" />
+          <input type="submit" name="BEfilter" class="filters" value="BackEnd" />
+          <input type="submit" name="FSfilter" class="filters" value="FullStack" />
+          {{if .MembersPost.CookieChecker}}
+          <input type="submit" name="myPosts" class="filters" value="My Posts" />
+          <input type="submit" name="likedPosts" class="filters" value="Liked Posts" />
+          {{end}}
+        </form>
+      </div>
+    </div>
+    {{ range .PostingDisplay}}
+    <div class="indPosts">
+      <br />
+      <div class="post-header">
+        <div class="chip">
+          <p class="usernamePost">{{.Username}}</p>
+        </div>
+
+        <!-------------------------------------------------- Subject Post Section ------------------------------>
+      </div>
+      <!-- Subject Title -->
+
+      <p class="postTitle" id="postTitle">{{.TitleText}}</p>
+      <br />
+      <span class="postTitle" id="postCat">{{.PostCategory}}</span>
+      <!-- subject content goes into this location.-->
+      <div class="postTextDiv">
+        <p id="postText">{{.PostText}}</p>
+        <br />
+      </div>
+
+      {{if .ImgExists}}
+      <div class="logo">
+        <!-- <p class="postImage" id="postImage"></p>
+            <img src="{{.Image}}" /> -->
+        <img src="{{.Image}}" alt="{{.TitleText}}" width="175vh" height="175vh" />
+      </div>
+      {{end}}
+
+      <br />
+      <!-------------------------------------------------- Subject section footer ------------------------------>
+      <div class="Comment-footer">
+        <div class="commentBtnDiv">
+          <button onclick="commentBox('{{.PostID}}')" class="commentSelector">
+            Comments
+          </button>
+        </div>
+        <div class="Left-Comment-footer" id="like-dislikeBtns">
+          <div class="LikeBtnDiv">
+          
+            <span><a id="likeCount">{{.Likes}}</a></span>
+            <span>
+          
+              <form action="/" method="POST" id="likeBTN">
+                <label for="likeSubmit" class="likeLabel">&#9989;</label>
+                {{if .CookieChecker}}
+                <input type="submit" id="likeSubmit" name="likeBtn" class="btnPlace" value="{{.PostID}}" />
+                {{end}}
+              </form>
+            </span>
+          
+          
+            <!-- DislikeButton Section -->
+          
+            <span><a id="likeCount">{{.Dislikes}}</a></span>
+          
+            <span>
+          
+              <form action="/" method="POST">
+                <label for="dislikeSubmit" class="likeLabel">&#10060;</label>
+                {{if .CookieChecker}}
+                <input type="submit" id="dislikeSubmit" name="dislikeBtn" class="btnPlace" value="{{.PostID}}" />
+                {{end}}
+              </form>
+            </span>
+          </div>
+          <!-- Make the commentbtn show a pop up with all related comments when clicked -->
+        </div>
+      </div>
+      <br />
+    </div>
+    <div class="commentContent" id="{{.PostID}}">
+      <div class="commentsTitle">
+        <h1>Comments</h1>
+      </div>
+
+      {{range .Comments}}
+
+      <div class="comment-information">
+        <div class="individualComments">
+          <p>
+            <a id="commentUsername">{{.CommentUsername}}</a> {{.CommentText}}
+          </p>
+        </div>
+
+        <div class="commentLikeBtnDiv">
+          <span><a id="likeCount">{{.Likes}}</a></span>
+          <span>
+            <form action="/" method="POST" id="likeBTN">
+              <label for="likeSubmit" class="likeLabel">&#9989;</label>
+              {{if .CookieChecker}}
+              <input type="submit" id="likeSubmit" name="commentlikeBtn" value="{{.CommentID}}" />
+              {{end}}
+            </form>
+          </span>
+        </div>
+        <div class="commentLikeBtnDiv">
+          <span><a id="likeCount">{{.Dislikes}}</a></span>
+          <br />
+
+          <form action="/" method="POST">
+            <label for="dislikeSubmit" class="likeLabel">&#10060;</label>
+            {{if .CookieChecker}}
+            <input type="submit" id="dislikeSubmit" name="commentDislikeBtn" value="{{.CommentID}}" maxlength="300" />
+            {{end}}
+          </form>
+        </div>
+      </div>
+      {{end}} {{if .CookieChecker}}
+      <div>
+        <form action="/" method="POST">
+          <input type="textarea" placeholder="Comment" name="commentTxt" id="commentTxt" required pattern=".*\S+.*" />
+          <input type="submit" value="{{.PostID}}" name="commentSubmit" id="commentSubmit" />
+        </form>
+      </div>
+      {{end}}
+    </div>
+    {{end}}
+  </div>
+  <script>
+    function commentBox(id) {
+      var x = document.getElementById(id);
+      if (x.style.display === "flex") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "flex";
+      }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function (event) {
+    //   if (event.target == modal) {
+    //     modal.style.display = "none";
+    //   }
+    // }
+    /*Resets form after submission to prevent the same value resubmitting*/
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</body>
+
+</html>
