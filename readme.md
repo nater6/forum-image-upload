@@ -1,6 +1,6 @@
-#Forum-Image-Upload
+# Forum-Image-Upload
 
-###Instruction
+### Instruction
 Clone the repository using the following instructions
 > git clone https://learn.01founders.co/git/nater68/forum-image-upload.git
 
