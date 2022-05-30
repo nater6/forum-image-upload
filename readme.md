@@ -10,5 +10,9 @@ Once you have cloned the repository run the program using the following script:
 The forum will then be at the link [localhost](http://localhost:8080/ "localhost:8080")
 
 On the forum website create a user and then log in using the credentials.
+You can also use the following credentials:
+> email: test@test.com
+> password: password123
+
 
 You can then click on "+create post" and try making a post with an image uploaded.
